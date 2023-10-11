@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def register(request):
-    return HttpResponse('Страница регистрации')
+    return render(request, 'main/register.html')
 
 def main(request):
-    return HttpResponse('Главная страница')
+    return render(request, 'main/main.html')

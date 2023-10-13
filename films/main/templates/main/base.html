@@ -1,11 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type='text/css' rel="stylesheet" href="{% static 'main/css/style.css' %}" />
     {% block head %}{% endblock %}
 </head>
-<body>
+<body style='background-image: url("{% static 'main/images/bg.png' %}");'>
+    <header>
+        <nav>
+            <ul class="header">
+                <li class="header">TEA231-Films</li>
+                <ul class="header">
+                    <li class="account_buttons">Регистрация</li>
+                    <li class="account_buttons">/</li>
+                    <li class="account_buttons">Авторизация</li>
+                    <img class='ava' src="{% static 'main/images/user_none.png' %}">
+                </ul>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
     {% block main %}{% endblock %}
+    </main>    
+
+    <footer>
+    </footer>
 </body>
 </html>

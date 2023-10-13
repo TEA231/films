@@ -1,0 +1,33 @@
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+}
+
+ul.header {
+    display: flex;
+    list-style-type: none;
+    font-size: 20px;
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-color: #171616;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li.header {
+    margin: 20px;
+}
+
+li.account_buttons {
+    margin: 5px;
+}
+
+img.ava {
+    height: 50px;
+    margin: 10px;
+}

@@ -31,3 +31,57 @@ img.ava {
     height: 50px;
     margin: 10px;
 }
+
+input.fake-editable {
+    height: 50px;
+    width: 500px;
+    background-color: #171616;
+    color: white;
+    border-color: #171616;
+    border-radius: 10px 0% 0% 10px;
+}
+
+button.search {
+    height: 50px;
+    background-color: #171616;
+    border-radius: 0% 10px 10px 0%;
+    border-color: #171616;
+}
+
+img.search {
+    height: 50px;
+}
+
+div.search{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+
+aside { 
+    position: fixed;
+    height: 100%;
+    width: 200px;
+    background-color: #0f0f0f;
+}
+
+ul.aside_ul {   
+    display: flex;
+    list-style-type: none;
+    margin: 0px 0px;
+    flex-direction: column;
+    height: 50%;
+    justify-content: flex-end;
+    
+}
+
+li.aside_li {
+    margin: 20px 0;
+}
+
+a.aside_a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 501;
+}

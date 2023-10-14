@@ -23,6 +23,11 @@ li.header {
     margin: 20px;
 }
 
+a.a_logo {
+    text-decoration: none;
+    color: white;
+}
+
 li.account_buttons {
     margin: 5px;
 }

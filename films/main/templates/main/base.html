@@ -11,23 +11,25 @@
     <header>
         <nav>
             <ul class="header">
-                <li class="header">TEA231-Films</li>
+                <li class="header"><a href='{% url "main" %}' class="a_logo">TEA231-Films</a></li>
                 <ul class="header">
-                    <li class="account_buttons">Регистрация</li>
-                    <li class="account_buttons">/</li>
-                    <li class="account_buttons">Авторизация</li>
-                    <img class='ava' src="{% static 'main/images/user_none.png' %}">
+                    {% if auth != True %}
+                        <li class="account_buttons"><a href="{% url 'register' %}" class="a_logo">Регистрация</a></li>
+                        <li class="account_buttons">/</li>
+                        <li class="account_buttons"><a href="{% url 'autorization' %}" class="a_logo">Авторизация</a></li>
+                    {% endif %}
+                        <img class='ava' src="{% static 'main/images/user_none.png' %}">
                 </ul>
             </ul>
         </nav>
     </header>
-    
+
     <aside>
         <ul class="aside_ul">
             <li class="aside_li"><a class="aside_a" href="#">Фильмы</a></li>
             <li class="aside_li"><a class="aside_a" href="#">Сериалы</a></li>
             <li class="aside_li"><a class="aside_a" href="#">ТВ</a></li>
-            <li class="aside_li"><a class="aside_a" href="#">Смотреть позже</a></li>
+            <li class="aside_li"><a class="aside_a" href="{% url 'history' %}">Смотреть позже</a></li>
         </ul>
     </aside>
     

@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from main.models import *
+
 context = {
     'auth': False
 }
@@ -9,6 +11,8 @@ def register(request):
     return render(request, 'main/register.html', context=context)
 
 def main(request):
+    films_env = Films.objects.filter(category='Фильм')
+    context['films_env'] = films_env
     return render(request, 'main/main.html', context=context)
 
 def auth(request):

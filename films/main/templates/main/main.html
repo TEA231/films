@@ -6,8 +6,51 @@
     {% endblock %}
 
     {% block main %}
+    <aside>
+        <ul class="aside_ul">
+            <li class="aside_li"><a class="aside_a" href="#">Фильмы</a></li>
+            <li class="aside_li"><a class="aside_a" href="#">Сериалы</a></li>
+            <li class="aside_li"><a class="aside_a" href="#">ТВ</a></li>
+            <li class="aside_li"><a class="aside_a" href="{% url 'history' %}">Смотреть позже</a></li>
+        </ul>
+    </aside>
+    <div class="content">
         <div class="search">
             <input class="fake-editable" type="search">
             <button class="search" type="submit" name="submit_button"><img class="search" src="{% static 'main/images/search.png' %}"></button>
         </div>
+        <div class="films">
+            <div class="film">
+
+            </div>
+
+            <div class="film">
+                
+            </div>
+
+            <div class="film">
+                
+            </div>
+
+            <div class="film">
+                
+            </div>
+
+            <div class="film">
+                
+            </div>
+
+            <div class="film">
+                
+            </div>
+            
+            <div class="film">
+                
+            </div>
+
+            <div class="film">
+                
+            </div>
+        </div>
+    </div>
     {% endblock %}

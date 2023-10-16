@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'films.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'films',
+        'NAME': 'films_db',
         'USER': 'postgres',
         'PASSWORD': 'qwerty',
         'HOST': 'localhost'
@@ -125,7 +125,7 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 

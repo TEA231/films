@@ -66,18 +66,19 @@ div.search{
 
 aside { 
     position: fixed;
-    height: 100%;
-    width: 200px;
+    bottom: 55%;
+    height: auto;
+    width: 180px;
     background-color: #0f0f0f;
+    Border-radius:0px 50px 50px 0px;
 }
 
 ul.aside_ul {   
     display: flex;
     list-style-type: none;
-    margin: 0px 0px;
+    margin: 0px 0px 0px 0px;
     flex-direction: column;
-    height: 50%;
-    justify-content: flex-end;
+    justify-content: flex-start;
     
 }
 
@@ -90,4 +91,24 @@ a.aside_a {
     color: white;
     font-size: 20px;
     font-weight: 501;
+}
+
+div.films {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 20px 50px 0 250px;
+    width: 100%;
+    height: auto;
+}
+
+div.film {
+    width: 300px;
+    height: 400px;
+    background-color: black;
+    margin: 30px 0;
+}
+
+
+main{
+    display: flex;
 }

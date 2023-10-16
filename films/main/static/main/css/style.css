@@ -1,4 +1,5 @@
 body {
+    background-image: url("/static/main/images/bg.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin: 0;

@@ -27,7 +27,7 @@
                 <div class="film">
                     <h1 class="in_film">{{ index.name }}</h1>
                     <img class='in_film' src="{% static 'main/images/pic.png' %}">
-                    <a class='in_film' href="#"><button class="in_film">Смотреть</button></a>
+                    <a class='in_film' href="{% url 'film' index.pk %}"><button class="in_film">Смотреть</button></a>
                 </div>
             {% endfor %}
         </div>

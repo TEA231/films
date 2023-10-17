@@ -20,3 +20,7 @@ def auth(request):
 
 def history(request):
     return render(request, 'main/history.html', context=context)
+
+def film(request, film_pk):
+    context['film_data'] =  Films.objects.filter(pk=film_pk)
+    return render(request, 'main/film.html', context=context)

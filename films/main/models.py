@@ -8,4 +8,4 @@ class Films(models.Model):
     video = models.ImageField(upload_to="films/video/")
 
     def __str__(self):
-        return self.name
+        return self.name    

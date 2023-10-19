@@ -11,9 +11,7 @@ def register(request):
     return render(request, 'main/register.html', context=context)
 
 def main(request):
-    films_env = Films.objects.filter(category='Фильм')
-    context['films_env'] = films_env
-    print(films_env[0].cover)
+    context['films_env'] = Films.objects.filter(category='Фильм')
     return render(request, 'main/main.html', context=context)
 
 def auth(request):
@@ -23,5 +21,5 @@ def history(request):
     return render(request, 'main/history.html', context=context)
 
 def film(request, film_pk):
-    context['film_data'] =  Films.objects.filter(pk=film_pk)
+    context['film_data'] =  Films.objects.get(pk=film_pk)
     return render(request, 'main/film.html', context=context)

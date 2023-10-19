@@ -1,7 +1,13 @@
 {% extends 'main/base.html' %}
-    {% block head %}
-        <title>{{ film_pk }}</title>
+    {% block head %}    
+        <title> {{ film_data.name }}</title>
     {% endblock %}
-        
     {% block main %}
+        <div class="film_age">
+            <img class='film_age' src="{{ film_data.cover }}">
+            <div class="film_age_2">
+                <h1 class="film_age"> {{ film_data.name }}</h1>
+                <p class="film_age"> {{ film_data.description }}</p>
+            </div>
+        </div>
     {% endblock %} 

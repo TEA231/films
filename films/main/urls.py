@@ -10,4 +10,3 @@ urlpatterns = [
     path('film/<int:film_pk>/', film, name='film')
 ]
 
-    

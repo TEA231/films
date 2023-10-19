@@ -13,6 +13,7 @@ def register(request):
 def main(request):
     films_env = Films.objects.filter(category='Фильм')
     context['films_env'] = films_env
+    print(films_env[0].cover)
     return render(request, 'main/main.html', context=context)
 
 def auth(request):

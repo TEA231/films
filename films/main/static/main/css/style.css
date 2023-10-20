@@ -118,11 +118,12 @@ div.content {
 }
 
 img.in_film {
-    width: 100%;
-    height: auto;
+    width: 300px;
+    height: 450px;
 }
 
 button.in_film {
+    margin: 20px 0;
     width: 250px;
     height: 30px;
     box-shadow: 0px 0px 10px white;
@@ -133,10 +134,11 @@ button.in_film {
 
 h1.in_film {
     color: white;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 div.film_age {
+    width: 100%;
     display: flex;
     background-color: #0f0f0f;
 }
@@ -160,4 +162,14 @@ p.film_age {
 
 img.film_age {
     width: 300px;
+}
+
+div.film_age_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+video.video_film {
+    margin: 50px 0px;
 }

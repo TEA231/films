@@ -3,11 +3,19 @@
         <title> {{ film_data.name }}</title>
     {% endblock %}
     {% block main %}
-        <div class="film_age">
-            <img class='film_age' src="{{ film_data.cover }}">
-            <div class="film_age_2">
-                <h1 class="film_age"> {{ film_data.name }}</h1>
-                <p class="film_age"> {{ film_data.description }}</p>
+        <div class="film_age_main">
+            <div class="film_age">
+                <img class='film_age' src="{{ film_data.cover }}">
+                <div class="film_age_2">
+                    <h1 class="film_age"> {{ film_data.name }}</h1>
+                    <p class="film_age"> {{ film_data.description }}</p>
+                </div>
             </div>
+        
+            <video class='video_film'  controls="controls">
+                <source src="{{ film_data.video }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            </video>
         </div>
+
+        
     {% endblock %} 

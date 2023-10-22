@@ -15,7 +15,15 @@
             <video class='video_film'  controls="controls">
                 <source src="{{ film_data.video.url }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
             </video>
+            
+            <div class="comments_in_age_film">
+                {% for comment in comments %}
+                    <div class="comments_film">
+                        <p class="comments_film">{{ comment.text }}</p>
+                    </div>
+                {% endfor %}
+                
+            </div>
         </div>
-
         
     {% endblock %} 

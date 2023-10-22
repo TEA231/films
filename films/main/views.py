@@ -22,4 +22,5 @@ def history(request):
 
 def film(request, film_pk):
     context['film_data'] =  Films.objects.get(pk=film_pk)
+    context['comments'] = Comments.objects.filter(key=context['film_data'])
     return render(request, 'main/film.html', context=context)

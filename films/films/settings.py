@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'films.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'films_db',
+        'NAME': 'TEA231_films',
         'USER': 'postgres',
         'PASSWORD': 'qwerty',
         'HOST': 'localhost'

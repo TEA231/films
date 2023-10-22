@@ -26,7 +26,7 @@
             {% for index in films_env %}
                 <div class="film">
                     <h1 class="in_film">{{ index.name }}</h1>
-                    <img class='in_film' src="{{ index.cover }}">
+                    <img class='in_film' src="{{ index.cover.url }}">
                     <a class='in_film' href="{% url 'film' index.pk %}"><button class="in_film">Смотреть</button></a>
                 </div>
             {% endfor %}
@@ -34,4 +34,3 @@
         
     </div>
     {% endblock %}
-    

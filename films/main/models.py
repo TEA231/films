@@ -8,6 +8,10 @@ class Films(models.Model):
     category = models.CharField(max_length=255)
 
 
+    def __str__(self):
+        return self.name
+
+
 class Comments(models.Model):
     text = models.TextField(blank=True)
     key = models.ForeignKey('Films', on_delete=models.CASCADE)

@@ -4,9 +4,11 @@ from .views import *
 
 urlpatterns = [
     path('register/', register, name='register'),
-    path('', main, name='main'),
+    path('films/', films, name='films'),
+    path('series/', series, name='series'),
+    path('tv/', tv, name='tv'),
     path('authorization/', auth, name='autorization'),
-    path('history/', history, name='history'),
+    path('', main, name='main'),
     path('film/<int:film_pk>/', film, name='film')
-]
+]  
 

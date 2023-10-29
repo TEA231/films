@@ -39,7 +39,7 @@ img.ava {
 }
 
 input.fake-editable {
-    height: 50px;
+    height: 44px;
     width: 500px;
     background-color: #171616;
     color: white;
@@ -55,10 +55,11 @@ button.search {
 }
 
 img.search {
+    width: 50px;
     height: 50px;
 }
 
-div.search{
+form.search{
     display: flex;
     margin: 20px;
     justify-content: center;

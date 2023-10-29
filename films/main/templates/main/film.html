@@ -15,7 +15,11 @@
             <video class='video_film'  controls="controls">
                 <source src="{{ film_data.video.url }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
             </video>
-            
+            <form class="add_comment" action="/film/{{ film_data.pk }}/ " method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="add_comment">Отправить</button>
+            </form>
             <div class="comments_in_age_film">
                 {% for comment in comments %}
                     <div class="comments_film">

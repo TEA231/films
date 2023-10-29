@@ -36,8 +36,11 @@ def tv(request):
     context['form'] = Search_vid()
     context['films_env'] = Films.objects.filter(category='Тв')
     return render(request, 'main/main.html', context=context)
-
+    
 def film(request, film_pk):
+    if request.method == 'POST':
+        c = Comments.objects.create(text=request.POST['text'], key=Films.objects.get(pk=film_pk))
+    context['form'] = AddComment()
     context['film_data'] =  Films.objects.get(pk=film_pk)
     context['comments'] = Comments.objects.filter(key=context['film_data'])
     return render(request, 'main/film.html', context=context)

@@ -185,7 +185,7 @@ div.comments_in_age_film {
 div.comments_film {
     width: 100%;
     min-height: 100px;
-    background-color: #0f0f0f;
+    background-color: #171616;
     margin: 10px 0;
     padding: 0px 15px;
 }
@@ -193,4 +193,32 @@ div.comments_film {
 p.comments_film {
     color: white;
     font-size: 20px;
+}
+
+form.add_comment { 
+    display: flex;
+    flex-direction: column;
+    width: 80% ;
+    height: auto;
+}
+
+textarea.add_comment {
+    width: 100%;
+    height: 150px;
+    background-color: #171616;
+    color: white;
+    font-size: 15px;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+button.add_comment {
+    margin: 10px 0px;
+    height: 70px;
+    width: 250px;
+    background-color: #171616;
+    border-radius: 10px 10px 10px 10px;
+    border-color: #171616;
+    color: white;
+    font-size: 15px;
 }

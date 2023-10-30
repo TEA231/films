@@ -1,14 +1,13 @@
 from django.urls import path 
 
-from .views import *
+from . import views
 
 urlpatterns = [
-    path('register/', register, name='register'),
-    path('films/', films, name='films'),
-    path('series/', series, name='series'),
-    path('tv/', tv, name='tv'),
-    path('authorization/', auth, name='autorization'),
-    path('', main, name='main'),
-    path('film/<int:film_pk>/', film, name='film')
-]  
-
+    path('register/', views.register, name='register'),
+    path('films/', views.Films_f.as_view(), name='films'),
+    path('series/', views.Series.as_view(), name='series'),
+    path('tv/', views.Tv.as_view(), name='tv'),
+    path('authorization/', views.auth, name='autorization'),
+    path('', views.Main.as_view(), name='main'),
+    path('film/<int:film_pk>/', views.film, name='film')
+]

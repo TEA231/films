@@ -9,5 +9,5 @@ urlpatterns = [
     path('tv/', views.Tv.as_view(), name='tv'),
     path('authorization/', views.auth, name='autorization'),
     path('', views.Main.as_view(), name='main'),
-    path('film/<int:film_pk>/', views.film, name='film')
+    path('film/<int:film_pk>/', views.Film.as_view(), name='film')
 ]

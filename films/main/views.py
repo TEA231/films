@@ -76,11 +76,24 @@ class Tv(ListView):
     def get_queryset(self):
         return Films.objects.filter(category='Тв')
 
+class Film(ListView):
+    model = Films
+    template_name = 'main/film.html'
+    context_object_name = 'film_data'
 
-def film(request, film_pk):
-    if request.method == 'POST':
-        c = Comments.objects.create(text=request.POST['text'], key=Films.objects.get(pk=film_pk))
-    context_g['form'] = AddComment()
-    context_g['film_data'] =  Films.objects.get(pk=film_pk)
-    context_g['comments'] = Comments.objects.filter(key=context_g['film_data'])
-    return render(request, 'main/film.html', context=context_g)
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = AddComment()
+        context['comments'] = Comments.objects.filter(key=context['film_data'])
+        return context
+    
+    def get_queryset(self):
+        return Films.objects.get(pk=self.kwargs['film_pk'])
+
+#def film(request, film_pk):
+#    if request.method == 'POST':
+#        c = Comments.objects.create(text=request.POST['text'], key=Films.objects.get(pk=film_pk))
+#    context_g['form'] = AddComment()
+#    context_g['film_data'] =  Films.objects.get(pk=film_pk)
+#    context_g['comments'] = Comments.objects.filter(key=context_g['film_data'])
+#    return render(request, 'main/film.html', context=context_g)

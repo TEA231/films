@@ -7,7 +7,7 @@
 
     {% block main %}
     <form class="search" action="{% url 'main' %}" method="post">
-        {% csrf_token %}
+        {% csrf_token %}    
         {{ form }}
         <button class="search" type="submit" name="submit_button"><img class="search" src="{% static 'main/images/search.png' %}"></button>
     </form>

@@ -1,7 +1,8 @@
 from typing import Any
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+from django.views import View
 
 from main.models import *
 from main.forms import *
@@ -16,24 +17,20 @@ def register(request):
 def auth(request):
     return render(request, 'main/auth.html', context=context_g)
 
-class Main(ListView):
-    model = Films
+
+class Main(View):
+    context = {'form': Search_vid()}
     template_name = 'main/main.html'
-    context_object_name = 'films_env'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = Search_vid()
-        return context
+    def get(self, request, *args, **kwargs):
+        self.context['films_env'] = Films.objects.all()
+        return render(request, self.template_name, self.context)
+    
+    def post(self, request, *args, **kwargs):
+        self.context['form'] = Search_vid(request.POST)
+        self.context['films_env'] = Films.objects.filter(name=request.POST['name'])
+        return render(request, self.template_name, self.context)
 
-
-#def main(request): 
-#    context['form'] = Search_vid()
-#    if request.method == 'POST':
-#        context['films_env'] = Films.objects.filter(name=request.POST['name'])
-#    else:
-#        context['films_env'] = Films.objects.all()
-#    return render(request, 'main/main.html', context=context)
 
 class Films_f(ListView):
     model = Films
@@ -76,9 +73,11 @@ class Tv(ListView):
     def get_queryset(self):
         return Films.objects.filter(category='Тв')
 
-class Film(ListView):
+
+class Film(DetailView):
     model = Films
     template_name = 'main/film.html'
+    pk_url_kwarg = 'film_pk'
     context_object_name = 'film_data'
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -86,9 +85,6 @@ class Film(ListView):
         context['form'] = AddComment()
         context['comments'] = Comments.objects.filter(key=context['film_data'])
         return context
-    
-    def get_queryset(self):
-        return Films.objects.get(pk=self.kwargs['film_pk'])
 
 #def film(request, film_pk):
 #    if request.method == 'POST':

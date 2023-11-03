@@ -1,6 +1,6 @@
 from typing import Any
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView
 from django.views import View
 
@@ -80,11 +80,19 @@ class Film(DetailView):
     pk_url_kwarg = 'film_pk'
     context_object_name = 'film_data'
 
+
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = AddComment()
         context['comments'] = Comments.objects.filter(key=context['film_data'])
         return context
+
+    def post(self, request, *args, **kwargs):
+        film_pk = self.model.objects.get(pk=kwargs.get('film_pk'))
+        text = request.POST['text']
+        c = Comments.objects.create(text=request.POST['text'], key=Films.objects.get(pk=kwargs.get('film_pk')))
+        return redirect('/film/' + str(kwargs.get('film_pk')) + '/')
+
 
 #def film(request, film_pk):
 #    if request.method == 'POST':

@@ -6,16 +6,14 @@ from django.views import View
 
 from main.models import *
 from main.forms import *
+from main.utils import *
 
-context_g = {
-    'auth': False
-}
 
 def register(request):
-    return render(request, 'main/register.html', context=context_g)
+    return render(request, 'main/register.html', context={'auth': False})
 
 def auth(request):
-    return render(request, 'main/auth.html', context=context_g)
+    return render(request, 'main/auth.html', context={'auth': False})
 
 
 class Main(View):
@@ -28,47 +26,47 @@ class Main(View):
     
     def post(self, request, *args, **kwargs):
         self.context['form'] = Search_vid(request.POST)
-        self.context['films_env'] = Films.objects.filter(name=request.POST['name'])
+        self.context['films_env'] = Films.objects.filter(name__contains=request.POST['name'])
         return render(request, self.template_name, self.context)
 
 
-class Films_f(ListView):
+class Films_f(FilmsMixin, ListView):
     model = Films
     template_name = 'main/main.html'
     context_object_name = 'films_env'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = Search_vid()
-        return context
+        c_def = self.get_user_context()
+        return dict(list(context.items()) + list(c_def.items()))
     
     def get_queryset(self):
         return Films.objects.filter(category='Фильм')
 
 
-class Series(ListView):
+class Series(FilmsMixin, ListView):
     model = Films
     template_name = 'main/main.html'
     context_object_name = 'films_env'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = Search_vid()
-        return context
+        c_def = self.get_user_context()
+        return dict(list(context.items()) + list(c_def.items()))
     
     def get_queryset(self):
         return Films.objects.filter(category='Сериал')
 
 
-class Tv(ListView):
+class Tv(FilmsMixin, ListView):
     model = Films
     template_name = 'main/main.html'
     context_object_name = 'films_env'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = Search_vid()
-        return context
+        c_def = self.get_user_context()
+        return dict(list(context.items()) + list(c_def.items()))
     
     def get_queryset(self):
         return Films.objects.filter(category='Тв')
@@ -92,12 +90,3 @@ class Film(DetailView):
         text = request.POST['text']
         c = Comments.objects.create(text=request.POST['text'], key=Films.objects.get(pk=kwargs.get('film_pk')))
         return redirect('/film/' + str(kwargs.get('film_pk')) + '/')
-
-
-#def film(request, film_pk):
-#    if request.method == 'POST':
-#        c = Comments.objects.create(text=request.POST['text'], key=Films.objects.get(pk=film_pk))
-#    context_g['form'] = AddComment()
-#    context_g['film_data'] =  Films.objects.get(pk=film_pk)
-#    context_g['comments'] = Comments.objects.filter(key=context_g['film_data'])
-#    return render(request, 'main/film.html', context=context_g)

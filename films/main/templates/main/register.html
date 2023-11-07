@@ -4,4 +4,12 @@
     {% endblock %}    
 
     {% block main %}
+        <form method="post" class="form_reg">
+            {% csrf_token %}
+            {% for f in form %}
+            {{ f }}
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button type="submit">Регистрация</button>
+        </form> 
     {% endblock %}

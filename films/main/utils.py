@@ -7,3 +7,4 @@ class FilmsMixin:
         context['form'] = Search_vid()
         context['auth'] = False
         return context
+    

@@ -222,3 +222,13 @@ button.add_comment {
     color: white;
     font-size: 15px;
 }
+
+form.form_reg {
+    background-color: #171616;
+    color: white;
+    padding: 15px;
+}
+
+div.form-error {
+    list-style-type: none;
+}

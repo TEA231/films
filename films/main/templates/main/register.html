@@ -5,11 +5,18 @@
 
     {% block main %}
         <form method="post" class="form_reg">
-            {% csrf_token %}
-            {% for f in form %}
-            {{ f }}
-            <div class="form-error">{{ f.errors }}</div>
-            {% endfor %}
-            <button type="submit">Регистрация</button>
+            <div class=container_au_rg>
+
+                {% csrf_token %}
+                {% for f in form %}
+                    <div class="el_form">
+                        {{ f.label }}
+                        {{ f }}
+                    </div>
+                    <div class="form-error">{{ f.errors }}</div>
+                {% endfor %}
+
+                <button type="submit">Регистрация</button>
+            </div>
         </form> 
     {% endblock %}

@@ -11,9 +11,9 @@ class AddComment(forms.Form):
 
 
 class Register_form(UserCreationForm):
-    username = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form_reg'}))
-    password1 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form_reg'}))
-    password2 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form_reg'}))
+    username = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'form_reg'}))
+    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form_reg'}))
+    password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form_reg'}))
 
     class Meta:
         model = User

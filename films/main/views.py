@@ -1,4 +1,7 @@
+from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
 from typing import Any
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -11,6 +14,10 @@ from main.forms import *
 from main.utils import *
 
 
+def logout_user(request):
+    logout(request)
+    return redirect('autorization')
+
 class Register(CreateView):
     form_class = Register_form
     template_name = 'main/register.html'
@@ -22,8 +29,16 @@ class Register(CreateView):
         return context
     
 
-def auth(request):
-    return render(request, 'main/auth.html', context={'auth': False})
+class LoginUser(LoginView):
+    form_class = LoginUserForm
+    template_name = 'main/auth.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+    def get_success_url(self):
+        return reverse_lazy('main')
 
 
 class Main(View):

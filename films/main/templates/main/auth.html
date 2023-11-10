@@ -4,4 +4,19 @@
     {% endblock %}    
 
     {% block main %}
+    <form method="post" class="form_reg">
+        <div class=container_au_rg></div>
+
+                {% csrf_token %}
+                {% for f in form %}
+                    <div class="el_form">
+                        {{ f.label }}
+                        {{ f }}
+                    </div>
+                    <div class="form-error">{{ f.errors }}</div>
+                {% endfor %}
+            
+            <button type="submit">Войти</button>
+        </div>
+    </form>
     {% endblock %}

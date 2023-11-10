@@ -4,7 +4,8 @@ from main.views import *
 
 urlpatterns = [
     path('register/', Register.as_view(), name='register'),
-    path('authorization/', auth, name='autorization'),
+    path('authorization/', LoginUser.as_view(), name='autorization'),
+    path('logout/', logout_user, name='logout'),
     path('', Main.as_view(), name='main'),
     path('films/', Films_f.as_view(), name='films'),
     path('series/', Series.as_view(), name='series'),

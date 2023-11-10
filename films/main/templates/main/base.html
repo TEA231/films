@@ -17,7 +17,11 @@
                     <li class="account_buttons"><a href="#  " class="a_logo">Админка</a></li>
                     <li class="account_buttons">/</li>
                     {% endif %}
-                    {% if auth != True %}
+
+                    {% if request.user.is_authenticated %}
+                        <li class="account_buttons"><a href="#" class="a_logo">{{ user.username }}</a></li>
+                        <li class="account_buttons"><a href="{% url 'logout' %}" class="a_logo">Выйти</a></li>
+                    {% else %}
                         <li class="account_buttons"><a href="{% url 'register' %}" class="a_logo">Регистрация</a></li>
                         <li class="account_buttons">/</li>
                         <li class="account_buttons"><a href="{% url 'autorization' %}" class="a_logo">Авторизация</a></li>
